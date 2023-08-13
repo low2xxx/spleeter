@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  demucs:
+    build:
+      context: ./demucs
+    volumes:
+      - ./music/origin:/music/origin
+      - ./music/separated:/music/separated
+    tty: true
+    working_dir: /music
+  basic-pitch:
+    build:
+      context: ./basic-pitch
+    volumes:
+      - ./music/separated:/music/separated
+      - ./music/midi:/music/midi
+    tty: true
+    working_dir: /music
+    environment:
+      - PYTHONIOENCODING=utf-8
