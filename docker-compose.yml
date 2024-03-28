@@ -8,13 +8,3 @@ services:
       - ./music/separated:/music/separated
     tty: true
     working_dir: /music
-  basic-pitch:
-    build:
-      context: ./basic-pitch
-    volumes:
-      - ./music/separated:/music/separated
-      - ./music/midi:/music/midi
-    tty: true
-    working_dir: /music
-    environment:
-      - PYTHONIOENCODING=utf-8
